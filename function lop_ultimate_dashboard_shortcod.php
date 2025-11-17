@@ -533,7 +533,7 @@ function lop_apple_dashboard_shortcode() {
     // CSS Loading via jsDelivr CDN (GitHub)
     // This loads CSS from your GitHub repository - fast, cached, and reliable
     // Make sure your GitHub repo is public and contains lop-dashboard-styles.css
-    wp_enqueue_style( 'lop-dashboard-styles', 'https://cdn.jsdelivr.net/gh/rdbradshaw/lopcdashboard@main/lop-dashboard-styles.css', array(), '1.0.2' );
+    wp_enqueue_style( 'lop-dashboard-styles', 'https://cdn.jsdelivr.net/gh/rbradshaw9/lopcdashboard@main/lop-dashboard-styles.css', array(), '1.0.2' );
     
     // Alternative: If repo name or branch is different, update the URL:
     // Format: https://cdn.jsdelivr.net/gh/USERNAME/REPO@BRANCH/lop-dashboard-styles.css

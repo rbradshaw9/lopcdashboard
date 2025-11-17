@@ -1,0 +1,1282 @@
+/* 
+LOP Dashboard Unified CSS
+Professional Apple-inspired design system for all dashboard pages
+Brand Color: #0474BE (Main header/membership color)
+*/
+
+/* CSS Variables - Apple Design System with Brand Colors */
+:root {
+    /* Brand Colors */
+    --lop-primary: #0474BE;
+    --lop-primary-dark: #024A8A;
+    --lop-primary-light: #3A96D4;
+    --lop-primary-ultra-light: #E8F4FF;
+    
+    /* Complementary Colors */
+    --lop-secondary: #34C759;
+    --lop-tertiary: #FF9500;
+    --lop-error: #FF3B30;
+    --lop-warning: #FF9500;
+    --lop-success: #34C759;
+    --lop-info: #007AFF;
+
+    /* Neutral Colors */
+    --lop-black: #000000;
+    --lop-gray-900: #1C1C1E;
+    --lop-gray-800: #2C2C2E;
+    --lop-gray-700: #3A3A3C;
+    --lop-gray-600: #48484A;
+    --lop-gray-500: #636366;
+    --lop-gray-400: #8E8E93;
+    --lop-gray-300: #AEAEB2;
+    --lop-gray-200: #C7C7CC;
+    --lop-gray-100: #D1D1D6;
+    --lop-gray-50: #F2F2F7;
+    --lop-white: #FFFFFF;
+
+    /* Apple Spacing System (8pt grid) */
+    --lop-space-xs: 0.25rem;   /* 4px */
+    --lop-space-sm: 0.5rem;    /* 8px */
+    --lop-space-md: 1rem;      /* 16px */
+    --lop-space-lg: 1.5rem;    /* 24px */
+    --lop-space-xl: 2rem;      /* 32px */
+    --lop-space-2xl: 3rem;     /* 48px */
+    --lop-space-3xl: 4rem;     /* 64px */
+
+    /* Typography */
+    --lop-font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --lop-font-weight-light: 300;
+    --lop-font-weight-regular: 400;
+    --lop-font-weight-medium: 500;
+    --lop-font-weight-semibold: 600;
+    --lop-font-weight-bold: 700;
+
+    /* Border Radius - Modern & Clean */
+    --lop-radius-sm: 6px;
+    --lop-radius-md: 8px;
+    --lop-radius-lg: 12px;
+    --lop-radius-xl: 16px;
+    --lop-radius-2xl: 20px;
+    --lop-radius-full: 9999px;
+
+    /* Shadows - Subtle & Refined */
+    --lop-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --lop-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --lop-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.04);
+    --lop-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.05);
+    --lop-shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.08), 0 10px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* =============================================================================
+   GLOBAL BASE STYLES
+   ============================================================================= */
+
+/* Main Dashboard Containers */
+.lop-dashboard,
+.lop-achievements-page,
+.lop-profile-page {
+    font-family: var(--lop-font-family);
+    max-width: 1200px;
+    margin: var(--lop-space-md) auto;
+    padding: var(--lop-space-xl);
+    background: transparent;
+    min-height: 600px;
+}
+
+/* Login Prompt (Shared across all pages) */
+.lop-login-prompt {
+    text-align: center;
+    padding: 3rem;
+    color: #86868b;
+    font-family: var(--lop-font-family);
+    background: #f5f5f7;
+    border-radius: 12px;
+    margin: 1rem 0;
+}
+
+.lop-login-prompt h3 {
+    margin-bottom: 1rem;
+    color: #1d1d1f;
+}
+
+.lop-login-prompt p {
+    margin-bottom: 2rem;
+}
+
+.lop-login-prompt a {
+    background: var(--lop-primary);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.lop-login-prompt a:hover {
+    background: var(--lop-primary-dark);
+    transform: translateY(-1px);
+}
+
+/* =============================================================================
+   HERO SECTIONS
+   ============================================================================= */
+
+.lop-hero-section {
+    background: var(--lop-white);
+    border-radius: var(--lop-radius-lg);
+    padding: var(--lop-space-2xl);
+    margin-bottom: var(--lop-space-xl);
+    box-shadow: var(--lop-shadow-sm);
+    border: 1px solid var(--lop-gray-100);
+    position: relative;
+    overflow: hidden;
+}
+
+.lop-hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    animation: float 20s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.lop-hero-title {
+    font-size: 2.5rem;
+    font-weight: var(--lop-font-weight-bold);
+    color: var(--lop-gray-900);
+    margin-bottom: var(--lop-space-sm);
+    text-align: center;
+}
+
+.lop-hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--lop-gray-500);
+    margin-bottom: var(--lop-space-xl);
+    font-weight: var(--lop-font-weight-regular);
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Welcome Header (Dashboard specific) */
+.lop-welcome {
+    background: linear-gradient(135deg, var(--lop-primary) 0%, var(--lop-primary-light) 100%);
+    border-radius: var(--lop-radius-lg);
+    padding: var(--lop-space-xl);
+    margin-bottom: var(--lop-space-xl);
+    color: var(--lop-white);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--lop-shadow-md);
+}
+
+.lop-welcome::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    pointer-events: none;
+}
+
+.lop-welcome-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: var(--lop-space-lg);
+}
+
+.lop-user-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--lop-shadow-md);
+    flex-shrink: 0;
+}
+
+.lop-welcome-text h1 {
+    font-size: 2rem;
+    font-weight: var(--lop-font-weight-bold);
+    margin: 0 0 var(--lop-space-sm) 0;
+    line-height: 1.2;
+}
+
+.lop-welcome-text p {
+    font-size: 1.125rem;
+    opacity: 0.9;
+    margin: 0;
+    font-weight: var(--lop-font-weight-medium);
+}
+
+/* =============================================================================
+   PROFILE HEADERS
+   ============================================================================= */
+
+.lop-profile-header {
+    display: flex;
+    align-items: center;
+    gap: var(--lop-space-xl);
+    margin-bottom: var(--lop-space-2xl);
+    position: relative;
+    z-index: 2;
+}
+
+.lop-profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: var(--lop-radius-full);
+    border: 4px solid var(--lop-white);
+    box-shadow: var(--lop-shadow-lg);
+    object-fit: cover;
+}
+
+.lop-profile-info h1 {
+    font-size: 2rem;
+    font-weight: var(--lop-font-weight-bold);
+    color: var(--lop-gray-900);
+    margin: 0 0 var(--lop-space-sm) 0;
+}
+
+.lop-profile-info .lop-profile-email {
+    color: var(--lop-gray-500);
+    font-size: 1.125rem;
+    margin-bottom: var(--lop-space-md);
+}
+
+/* =============================================================================
+   STATS & METRICS
+   ============================================================================= */
+
+.lop-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--lop-space-lg);
+    margin-bottom: var(--lop-space-xl);
+}
+
+.lop-profile-stats {
+    display: flex;
+    gap: var(--lop-space-lg);
+    flex-wrap: wrap;
+}
+
+.lop-stat-card,
+.lop-profile-stat,
+.lop-hero-stat {
+    background: var(--lop-white);
+    border-radius: var(--lop-radius-lg);
+    padding: var(--lop-space-lg);
+    text-align: center;
+    box-shadow: var(--lop-shadow-sm);
+    border: 1px solid var(--lop-gray-100);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.lop-profile-stat {
+    background: var(--lop-gray-50);
+    min-width: 80px;
+    padding: var(--lop-space-md);
+}
+
+.lop-hero-stat {
+    transition: all 0.2s ease;
+}
+
+.lop-stat-card:hover,
+.lop-hero-stat:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--lop-shadow-md);
+    border-color: var(--lop-primary);
+}
+
+.lop-stat-icon,
+.lop-hero-stat-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto var(--lop-space-md);
+    background: var(--lop-primary-ultra-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--lop-primary);
+}
+
+.lop-hero-stat-icon {
+    font-size: 2rem;
+    margin-bottom: var(--lop-space-sm);
+}
+
+.lop-stat-number,
+.lop-profile-stat-number,
+.lop-hero-stat-number {
+    font-size: 2rem;
+    font-weight: var(--lop-font-weight-bold);
+    color: var(--lop-primary);
+    margin-bottom: var(--lop-space-xs);
+    line-height: 1;
+}
+
+.lop-profile-stat-number {
+    font-size: 1.5rem;
+}
+
+.lop-hero-stat-number {
+    font-size: 2rem;
+}
+
+.lop-stat-label,
+.lop-profile-stat-label,
+.lop-hero-stat-label {
+    font-size: 0.75rem;
+    color: var(--lop-gray-500);
+    font-weight: var(--lop-font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.lop-hero-stat-label {
+    font-size: 0.875rem;
+}
+
+/* Progress bars for stats */
+.lop-mini-progress {
+    width: 100%;
+    height: 4px;
+    background: var(--lop-gray-200);
+    border-radius: 2px;
+    margin-top: var(--lop-space-sm);
+    overflow: hidden;
+}
+
+.lop-mini-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--lop-primary) 0%, var(--lop-primary-light) 100%);
+    border-radius: 2px;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =============================================================================
+   SECTIONS & CARDS
+   ============================================================================= */
+
+.lop-section {
+    background: var(--lop-white);
+    border: 1px solid var(--lop-gray-100);
+    border-radius: var(--lop-radius-xl);
+    padding: var(--lop-space-2xl);
+    margin-bottom: var(--lop-space-2xl);
+    box-shadow: var(--lop-shadow-sm);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.lop-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--lop-primary) 0%, var(--lop-secondary) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lop-section:hover {
+    box-shadow: var(--lop-shadow-lg);
+    border-color: var(--lop-primary);
+    transform: translateY(-2px);
+}
+
+.lop-section:hover::before {
+    opacity: 1;
+}
+
+.lop-section-compact {
+    background: var(--lop-white);
+    border: 1px solid var(--lop-gray-100);
+    border-radius: var(--lop-radius-xl);
+    padding: var(--lop-space-xl);
+    box-shadow: var(--lop-shadow-sm);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.lop-section-compact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--lop-primary) 0%, var(--lop-secondary) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lop-section-compact:hover {
+    box-shadow: var(--lop-shadow-lg);
+    border-color: var(--lop-primary);
+    transform: translateY(-1px);
+}
+
+.lop-section-compact:hover::before {
+    opacity: 1;
+}
+
+.lop-section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: var(--lop-space-lg);
+    color: var(--lop-gray-900);
+    display: flex;
+    align-items: center;
+    gap: var(--lop-space-md);
+}
+
+.lop-section-compact .lop-section-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--lop-space-md);
+}
+
+.lop-section-title svg {
+    color: var(--lop-primary);
+}
+
+/* =============================================================================
+   LAYOUT SYSTEMS
+   ============================================================================= */
+
+/* Two Column Layout */
+.lop-two-column-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--lop-space-2xl);
+    align-items: start;
+}
+
+.lop-left-column,
+.lop-right-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--lop-space-2xl);
+}
+
+/* =============================================================================
+   FORM STYLES
+   ============================================================================= */
+
+.lop-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--lop-space-lg);
+    margin-bottom: var(--lop-space-xl);
+}
+
+.lop-single-column-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--lop-space-lg);
+    margin-bottom: var(--lop-space-xl);
+}
+
+.lop-form-group {
+    margin-bottom: var(--lop-space-lg);
+}
+
+.lop-form-label {
+    display: block;
+    font-weight: var(--lop-font-weight-semibold);
+    color: var(--lop-gray-700);
+    margin-bottom: var(--lop-space-sm);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.lop-form-input,
+.lop-form-textarea {
+    width: 100%;
+    padding: var(--lop-space-md) var(--lop-space-lg);
+    border: 2px solid var(--lop-gray-200);
+    border-radius: var(--lop-radius-md);
+    font-family: var(--lop-font-family);
+    font-size: 1rem;
+    background: var(--lop-white);
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.lop-form-input:focus,
+.lop-form-textarea:focus {
+    outline: none;
+    border-color: var(--lop-primary);
+    box-shadow: 0 0 0 3px rgba(4, 116, 190, 0.1);
+}
+
+.lop-form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* =============================================================================
+   BUTTONS
+   ============================================================================= */
+
+.lop-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--lop-space-sm);
+    padding: var(--lop-space-md) var(--lop-space-xl);
+    border: none;
+    border-radius: var(--lop-radius-md);
+    font-family: var(--lop-font-family);
+    font-weight: var(--lop-font-weight-semibold);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.lop-btn-primary {
+    background: var(--lop-primary);
+    color: var(--lop-white);
+    box-shadow: var(--lop-shadow-sm);
+}
+
+.lop-btn-primary:hover {
+    background: var(--lop-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--lop-shadow-md);
+}
+
+.lop-btn-secondary {
+    background: var(--lop-gray-100);
+    color: var(--lop-gray-700);
+    border: 2px solid var(--lop-gray-200);
+}
+
+.lop-btn-secondary:hover {
+    background: var(--lop-gray-200);
+    border-color: var(--lop-gray-300);
+    transform: translateY(-1px);
+}
+
+/* =============================================================================
+   ALERTS & NOTIFICATIONS
+   ============================================================================= */
+
+.lop-alert {
+    padding: var(--lop-space-lg);
+    border-radius: var(--lop-radius-md);
+    margin-bottom: var(--lop-space-lg);
+    font-weight: var(--lop-font-weight-medium);
+    display: flex;
+    align-items: center;
+    gap: var(--lop-space-sm);
+}
+
+.lop-alert-success {
+    background: rgba(52, 199, 89, 0.1);
+    color: #1B5E20;
+    border: 1px solid rgba(52, 199, 89, 0.2);
+}
+
+.lop-alert-error {
+    background: rgba(255, 59, 48, 0.1);
+    color: #C62828;
+    border: 1px solid rgba(255, 59, 48, 0.2);
+}
+
+.lop-alert-warning {
+    background: rgba(255, 149, 0, 0.1);
+    color: #E65100;
+    border: 1px solid rgba(255, 149, 0, 0.2);
+}
+
+.lop-alert-info {
+    background: rgba(4, 116, 190, 0.1);
+    color: var(--lop-primary-dark);
+    border: 1px solid rgba(4, 116, 190, 0.2);
+}
+
+/* =============================================================================
+   INFO CARDS
+   ============================================================================= */
+
+.lop-info-card {
+    background: var(--lop-gray-50);
+    border: 1px solid var(--lop-gray-200);
+    border-radius: var(--lop-radius-lg);
+    padding: var(--lop-space-lg);
+    margin-bottom: var(--lop-space-md);
+    transition: all 0.2s ease;
+}
+
+.lop-info-card:hover {
+    background: var(--lop-white);
+    border-color: var(--lop-primary);
+    box-shadow: var(--lop-shadow-sm);
+}
+
+.lop-info-card-label {
+    font-size: 0.75rem;
+    font-weight: var(--lop-font-weight-semibold);
+    color: var(--lop-gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--lop-space-xs);
+}
+
+.lop-info-card-value {
+    font-size: 1rem;
+    font-weight: var(--lop-font-weight-medium);
+    color: var(--lop-gray-800);
+}
+
+.lop-info-card-note {
+    font-size: 0.75rem;
+    color: var(--lop-gray-500);
+    margin-top: var(--lop-space-xs);
+    font-style: italic;
+}
+
+/* =============================================================================
+   ACHIEVEMENT SPECIFIC STYLES
+   ============================================================================= */
+
+.lop-achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--lop-space-lg);
+    margin-bottom: var(--lop-space-xl);
+}
+
+.lop-achievement-card {
+    background: var(--lop-white);
+    border: 1px solid var(--lop-gray-100);
+    border-radius: var(--lop-radius-lg);
+    padding: var(--lop-space-lg);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    box-shadow: var(--lop-shadow-xs);
+    color: var(--lop-gray-900);
+}
+
+.lop-achievement-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--lop-primary);
+}
+
+.lop-achievement-card.earned:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.15);
+}
+
+.lop-achievement-card.available:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.lop-achievement-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--lop-space-md);
+    margin-bottom: var(--lop-space-md);
+    position: relative;
+    z-index: 2;
+}
+
+.lop-achievement-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.3);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background: rgba(255,255,255,0.15);
+}
+
+.lop-achievement-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.lop-achievement-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: var(--lop-space-xs);
+    line-height: 1.3;
+}
+
+.lop-achievement-points {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: var(--lop-primary);
+    color: var(--lop-white);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--lop-radius-sm);
+    font-size: 0.75rem;
+    font-weight: var(--lop-font-weight-semibold);
+}
+
+.lop-achievement-type-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: var(--lop-gray-100);
+    color: var(--lop-gray-700);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--lop-radius-sm);
+    font-size: 0.75rem;
+    font-weight: var(--lop-font-weight-medium);
+    margin-top: var(--lop-space-xs);
+}
+
+.lop-achievement-description {
+    margin: var(--lop-space-md) 0;
+    opacity: 0.9;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    position: relative;
+    z-index: 2;
+}
+
+.lop-achievement-date {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* =============================================================================
+   FILTER & TAB STYLES
+   ============================================================================= */
+
+.lop-filter-tabs {
+    display: flex;
+    gap: var(--lop-space-sm);
+    margin-bottom: var(--lop-space-xl);
+    flex-wrap: wrap;
+}
+
+.lop-type-filters {
+    justify-content: center;
+    background: var(--lop-white);
+    border: 1px solid var(--lop-gray-200);
+    border-radius: var(--lop-radius-lg);
+    padding: var(--lop-space-md);
+}
+
+.lop-filter-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: var(--lop-space-sm) var(--lop-space-md);
+    border: 1px solid var(--lop-gray-200);
+    border-radius: var(--lop-radius-md);
+    background: var(--lop-white);
+    color: var(--lop-gray-600);
+    font-weight: var(--lop-font-weight-medium);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.lop-filter-tab:hover {
+    border-color: var(--lop-primary);
+    color: var(--lop-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--lop-shadow-xs);
+}
+
+.lop-filter-tab.active {
+    background: var(--lop-primary);
+    border-color: var(--lop-primary);
+    color: var(--lop-white);
+    box-shadow: var(--lop-shadow-sm);
+}
+
+.lop-filter-icon {
+    font-size: 1rem;
+}
+
+/* Achievement switcher tabs */
+.lop-achievement-switcher {
+    background: var(--lop-gray-50);
+    border: 1px solid var(--lop-gray-200);
+    border-radius: var(--lop-radius-lg);
+    padding: var(--lop-space-lg);
+    margin-bottom: var(--lop-space-xl);
+}
+
+.lop-switcher-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--lop-space-sm);
+    margin-bottom: var(--lop-space-md);
+}
+
+.lop-switcher-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--lop-space-sm);
+    padding: var(--lop-space-md) var(--lop-space-lg);
+    background: var(--lop-white);
+    border: 2px solid var(--lop-gray-200);
+    border-radius: var(--lop-radius-md);
+    color: var(--lop-gray-600);
+    font-weight: var(--lop-font-weight-semibold);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    min-height: 60px;
+}
+
+.lop-switcher-tab:hover {
+    border-color: var(--lop-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--lop-shadow-sm);
+}
+
+.lop-switcher-tab.active {
+    background: var(--lop-primary);
+    border-color: var(--lop-primary);
+    color: var(--lop-white);
+    box-shadow: var(--lop-shadow-md);
+}
+
+.lop-tab-icon {
+    font-size: 1.25rem;
+}
+
+.lop-tab-label {
+    font-size: 1rem;
+    font-weight: var(--lop-font-weight-semibold);
+}
+
+.lop-tab-count {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--lop-radius-sm);
+    font-size: 0.875rem;
+    font-weight: var(--lop-font-weight-bold);
+    min-width: 28px;
+    text-align: center;
+}
+
+.lop-switcher-tab.active .lop-tab-count {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lop-switcher-tab:not(.active):hover .lop-tab-count {
+    background: rgba(4, 116, 190, 0.1);
+    color: var(--lop-primary);
+}
+
+/* =============================================================================
+   PROGRESS ELEMENTS
+   ============================================================================= */
+
+.lop-progress-bar {
+    height: 6px;
+    background: var(--lop-gray-200);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.lop-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--lop-primary) 0%, var(--lop-primary-light) 100%);
+    border-radius: 3px;
+    transition: width 1s ease-out;
+}
+
+.lop-achievement-progress {
+    text-align: center;
+}
+
+.lop-progress-label {
+    font-size: 0.875rem;
+    color: var(--lop-gray-600);
+    margin-bottom: var(--lop-space-sm);
+    font-weight: var(--lop-font-weight-medium);
+}
+
+/* =============================================================================
+   RANK LADDER & TIMELINE
+   ============================================================================= */
+
+.lop-rank-ladder {
+    position: relative;
+    padding: var(--lop-space-xl) 0;
+}
+
+.lop-timeline-track {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--lop-primary) 0%, var(--lop-primary-light) 100%);
+    border-radius: 2px;
+    transform: translateX(-50%);
+}
+
+.lop-rank-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--lop-space-xl);
+    position: relative;
+}
+
+.lop-rank-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--lop-primary);
+    border: 4px solid var(--lop-white);
+    box-shadow: var(--lop-shadow-md);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.lop-rank-content {
+    background: var(--lop-white);
+    border-radius: var(--lop-radius-lg);
+    padding: var(--lop-space-lg);
+    box-shadow: var(--lop-shadow-sm);
+    border: 1px solid var(--lop-gray-100);
+    flex: 1;
+    margin: 0 var(--lop-space-xl);
+}
+
+/* =============================================================================
+   EMPTY STATES
+   ============================================================================= */
+
+.lop-empty-state {
+    text-align: center;
+    padding: var(--lop-space-2xl);
+    color: var(--lop-gray-500);
+}
+
+.lop-empty-state svg {
+    width: 64px;
+    height: 64px;
+    margin-bottom: var(--lop-space-lg);
+    opacity: 0.5;
+    color: var(--lop-gray-400);
+}
+
+.lop-empty-state h3 {
+    font-size: 1.5rem;
+    color: var(--lop-gray-700);
+    margin-bottom: var(--lop-space-sm);
+}
+
+.lop-empty-state p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* =============================================================================
+   DASHBOARD SPECIFIC STYLES
+   ============================================================================= */
+
+/* Announcements */
+.lop-banner-announcements {
+    margin-bottom: var(--lop-space-lg);
+}
+
+.lop-banner-announcement {
+    position: relative;
+    margin-bottom: var(--lop-space-md);
+    border-radius: var(--lop-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--lop-shadow-lg);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lop-banner-announcement:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--lop-shadow-xl);
+}
+
+.lop-banner-announcement:last-child {
+    margin-bottom: 0;
+}
+
+.lop-banner-announcement img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lop-banner-link:hover img {
+    transform: scale(1.02);
+}
+
+.lop-banner-dismiss {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--lop-gray-700);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+}
+
+.lop-banner-dismiss:hover {
+    background: var(--lop-white);
+    color: var(--lop-gray-900);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.lop-announcements-wrapper {
+    margin-bottom: var(--lop-space-xl);
+}
+
+.lop-announcements-card {
+    background: var(--lop-white);
+    border: 1px solid var(--lop-gray-200);
+    border-radius: var(--lop-radius-lg);
+    box-shadow: var(--lop-shadow-sm);
+    overflow: hidden;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lop-announcements-card:hover {
+    box-shadow: var(--lop-shadow-md);
+    border-color: var(--lop-primary);
+}
+
+.lop-announcements-header {
+    margin: 0;
+}
+
+.lop-announcements-toggle {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: var(--lop-space-lg);
+    cursor: pointer;
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lop-announcements-toggle:hover {
+    background: var(--lop-gray-50);
+}
+
+/* Course Badges & Ribbons */
+.lop-bonus-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #FFFFFF;
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--lop-radius-full);
+    font-size: 0.75rem;
+    font-weight: var(--lop-font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(255, 165, 0, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    animation: bonus-pulse 2s ease-in-out infinite;
+}
+
+.lop-bonus-badge svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}
+
+@keyframes bonus-pulse {
+    0%, 100% {
+        box-shadow: 0 4px 12px rgba(255, 165, 0, 0.4);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 4px 16px rgba(255, 165, 0, 0.6);
+        transform: scale(1.02);
+    }
+}
+
+.lop-completion-ribbon {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 10;
+    background: var(--lop-success);
+    color: white;
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--lop-radius-full);
+    font-size: 0.75rem;
+    font-weight: var(--lop-font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(52, 199, 89, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.lop-completion-ribbon svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* =============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================= */
+
+@media (max-width: 1024px) {
+    .lop-two-column-layout {
+        grid-template-columns: 1fr;
+        gap: var(--lop-space-xl);
+    }
+    
+    .lop-stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .lop-dashboard,
+    .lop-achievements-page,
+    .lop-profile-page {
+        padding: var(--lop-space-md);
+    }
+    
+    .lop-hero-section {
+        padding: var(--lop-space-xl);
+    }
+    
+    .lop-section {
+        padding: var(--lop-space-xl);
+    }
+    
+    .lop-section-compact {
+        padding: var(--lop-space-lg);
+    }
+    
+    .lop-profile-header {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--lop-space-lg);
+    }
+    
+    .lop-welcome-content {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--lop-space-md);
+    }
+    
+    .lop-form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .lop-hero-title {
+        font-size: 2rem;
+    }
+    
+    .lop-section-title {
+        font-size: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--lop-space-sm);
+    }
+    
+    .lop-two-column-layout {
+        grid-template-columns: 1fr;
+        gap: var(--lop-space-lg);
+    }
+    
+    .lop-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--lop-space-md);
+    }
+    
+    .lop-achievements-grid {
+        grid-template-columns: 1fr;
+        gap: var(--lop-space-md);
+    }
+    
+    .lop-switcher-tabs {
+        grid-template-columns: 1fr;
+    }
+    
+    .lop-filter-tabs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 480px) {
+    .lop-profile-stats {
+        justify-content: center;
+    }
+    
+    .lop-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .lop-hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .lop-section-title {
+        font-size: 1.25rem;
+    }
+}

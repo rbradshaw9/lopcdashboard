@@ -83,6 +83,24 @@ Brand Color: #0474BE (Main header/membership color)
     min-height: 600px;
 }
 
+/* Smooth scroll for entire page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
 .lop-dashboard-wrapper {
     display: flex;
     flex-direction: column;
@@ -582,6 +600,19 @@ Brand Color: #0474BE (Main header/membership color)
     box-shadow: var(--lop-shadow-md);
 }
 
+.lop-btn-primary:focus,
+.lop-button-primary:focus {
+    outline: 2px solid var(--lop-primary);
+    outline-offset: 2px;
+    background: var(--lop-primary-dark);
+}
+
+.lop-btn-primary:active,
+.lop-button-primary:active {
+    transform: translateY(0);
+    box-shadow: var(--lop-shadow-sm);
+}
+
 .lop-btn-secondary,
 .lop-button-secondary {
     background: var(--lop-gray-100);
@@ -594,6 +625,18 @@ Brand Color: #0474BE (Main header/membership color)
     background: var(--lop-gray-200);
     border-color: var(--lop-gray-300);
     transform: translateY(-1px);
+}
+
+.lop-btn-secondary:focus,
+.lop-button-secondary:focus {
+    outline: 2px solid var(--lop-primary);
+    outline-offset: 2px;
+    background: var(--lop-gray-200);
+}
+
+.lop-btn-secondary:active,
+.lop-button-secondary:active {
+    transform: translateY(0);
 }
 
 /* =============================================================================
@@ -1006,27 +1049,33 @@ Brand Color: #0474BE (Main header/membership color)
 
 .lop-empty-state {
     text-align: center;
-    padding: var(--lop-space-2xl);
+    padding: var(--lop-space-3xl) var(--lop-space-xl);
     color: var(--lop-gray-500);
+    background: var(--lop-gray-50);
+    border-radius: var(--lop-radius-xl);
 }
 
 .lop-empty-state svg {
-    width: 64px;
-    height: 64px;
-    margin-bottom: var(--lop-space-lg);
-    opacity: 0.5;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto var(--lop-space-lg);
+    opacity: 0.4;
     color: var(--lop-gray-400);
 }
 
 .lop-empty-state h3 {
     font-size: 1.5rem;
-    color: var(--lop-gray-700);
+    font-weight: var(--lop-font-weight-semibold);
+    color: var(--lop-gray-900);
     margin-bottom: var(--lop-space-sm);
 }
 
 .lop-empty-state p {
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.6;
+    color: var(--lop-gray-600);
+    max-width: 480px;
+    margin: 0 auto var(--lop-space-lg);
 }
 
 /* =============================================================================
@@ -1170,7 +1219,11 @@ Brand Color: #0474BE (Main header/membership color)
     outline: none;
     border-color: var(--lop-primary);
     background: var(--lop-white);
-    box-shadow: 0 0 0 3px rgba(4, 116, 190, 0.08);
+    box-shadow: 0 0 0 3px rgba(4, 116, 190, 0.1);
+}
+
+.lop-search-input::placeholder {
+    color: var(--lop-gray-400);
 }
 
 .lop-filter-select {
@@ -1190,7 +1243,7 @@ Brand Color: #0474BE (Main header/membership color)
 .lop-filter-select:focus {
     outline: none;
     border-color: var(--lop-primary);
-    box-shadow: 0 0 0 3px rgba(4, 116, 190, 0.08);
+    box-shadow: 0 0 0 3px rgba(4, 116, 190, 0.1);
 }
 
 /* Course Grid */
@@ -1220,6 +1273,12 @@ Brand Color: #0474BE (Main header/membership color)
     transform: translateY(-3px);
     box-shadow: var(--lop-shadow-md);
     border-color: var(--lop-primary-light);
+}
+
+.lop-course-card:focus-within {
+    outline: 2px solid var(--lop-primary);
+    outline-offset: 2px;
+    transform: translateY(-2px);
 }
 
 .lop-course-card.completed {

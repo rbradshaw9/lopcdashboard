@@ -611,7 +611,18 @@
                     $seen_announcements = array();
                 }
                 
+                // Get permanently dismissed announcements (these should never show again)
+                $dismissed_forever = get_user_meta( $user_id, 'lop_dismissed_announcements', true );
+                if ( ! is_array( $dismissed_forever ) ) {
+                    $dismissed_forever = array();
+                }
+                
                 foreach ( $user_announcements as $announcement ) {
+                    // Skip permanently dismissed announcements
+                    if ( in_array( $announcement->ID, $dismissed_forever ) ) {
+                        continue;
+                    }
+                    
                     // Get announcement type (ACF or post meta)
                     if ( function_exists( 'get_field' ) ) {
                         $announcement_display = get_field( 'announcement_display_type', $announcement->ID );

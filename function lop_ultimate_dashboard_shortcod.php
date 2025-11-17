@@ -530,10 +530,11 @@ function lop_apple_dashboard_shortcode() {
         }
     }
 
-    // CSS Loading via jsDelivr CDN (GitHub)
+    // CSS Loading via jsDelivr CDN (GitHub) with cache-busting
     // This loads CSS from your GitHub repository - fast, cached, and reliable
     // Make sure your GitHub repo is public and contains lop-dashboard-styles.css
-    wp_enqueue_style( 'lop-dashboard-styles', 'https://cdn.jsdelivr.net/gh/rbradshaw9/lopcdashboard@main/lop-dashboard-styles.css', array(), '1.0.2' );
+    $css_version = '1.0.3-' . time(); // Cache busting to force fresh load
+    wp_enqueue_style( 'lop-dashboard-styles', 'https://cdn.jsdelivr.net/gh/rbradshaw9/lopcdashboard@main/lop-dashboard-styles.css', array(), $css_version );
     
     // Alternative: If repo name or branch is different, update the URL:
     // Format: https://cdn.jsdelivr.net/gh/USERNAME/REPO@BRANCH/lop-dashboard-styles.css

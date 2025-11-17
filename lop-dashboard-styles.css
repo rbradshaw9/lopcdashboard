@@ -578,9 +578,11 @@ Brand Color: #0474BE (Main header/membership color)
    BUTTONS
    ============================================================================= */
 
-.lop-btn {
+.lop-btn,
+.lop-button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: var(--lop-space-sm);
     padding: var(--lop-space-md) var(--lop-space-xl);
     border: none;
@@ -595,25 +597,35 @@ Brand Color: #0474BE (Main header/membership color)
     box-sizing: border-box;
 }
 
-.lop-btn-primary {
+.lop-btn svg,
+.lop-button svg {
+    width: 18px;
+    height: 18px;
+}
+
+.lop-btn-primary,
+.lop-button-primary {
     background: var(--lop-primary);
     color: var(--lop-white);
     box-shadow: var(--lop-shadow-sm);
 }
 
-.lop-btn-primary:hover {
+.lop-btn-primary:hover,
+.lop-button-primary:hover {
     background: var(--lop-primary-dark);
     transform: translateY(-1px);
     box-shadow: var(--lop-shadow-md);
 }
 
-.lop-btn-secondary {
+.lop-btn-secondary,
+.lop-button-secondary {
     background: var(--lop-gray-100);
     color: var(--lop-gray-700);
     border: 2px solid var(--lop-gray-200);
 }
 
-.lop-btn-secondary:hover {
+.lop-btn-secondary:hover,
+.lop-button-secondary:hover {
     background: var(--lop-gray-200);
     border-color: var(--lop-gray-300);
     transform: translateY(-1px);
@@ -1152,6 +1164,182 @@ Brand Color: #0474BE (Main header/membership color)
     background: var(--lop-gray-50);
 }
 
+/* Course Section Controls */
+.lop-courses-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--lop-space-lg);
+    margin-bottom: var(--lop-space-xl);
+}
+
+.lop-search-filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--lop-space-md);
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.lop-search-box {
+    position: relative;
+    flex: 1 1 220px;
+    max-width: 320px;
+}
+
+.lop-search-input {
+    width: 100%;
+    padding: var(--lop-space-md) var(--lop-space-xl);
+    border-radius: var(--lop-radius-full);
+    border: 1px solid var(--lop-gray-200);
+    background: var(--lop-gray-50);
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.lop-search-input:focus {
+    outline: none;
+    border-color: var(--lop-primary);
+    background: var(--lop-white);
+    box-shadow: 0 0 0 3px rgba(4, 116, 190, 0.08);
+}
+
+.lop-filter-select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: var(--lop-space-md) var(--lop-space-xl);
+    border-radius: var(--lop-radius-full);
+    border: 1px solid var(--lop-gray-200);
+    background: var(--lop-white);
+    font-size: 0.95rem;
+    color: var(--lop-gray-700);
+    cursor: pointer;
+    min-width: 180px;
+    transition: border-color 0.2s ease;
+}
+
+.lop-filter-select:focus {
+    outline: none;
+    border-color: var(--lop-primary);
+    box-shadow: 0 0 0 3px rgba(4, 116, 190, 0.08);
+}
+
+/* Course Grid */
+.lop-course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--lop-space-xl);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lop-course-card {
+    background: var(--lop-white);
+    border: 1px solid var(--lop-gray-100);
+    border-radius: var(--lop-radius-xl);
+    box-shadow: var(--lop-shadow-sm);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    min-height: 360px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lop-course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--lop-shadow-lg);
+    border-color: var(--lop-primary);
+}
+
+.lop-course-card.completed {
+    border-color: rgba(52, 199, 89, 0.3);
+    box-shadow: 0 12px 30px rgba(52, 199, 89, 0.15);
+}
+
+.lop-course-card p {
+    margin: 0;
+}
+
+.lop-card-thumb {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+.lop-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--lop-space-md);
+    padding: var(--lop-space-xl);
+    height: 100%;
+}
+
+.lop-card-content h4 {
+    font-size: 1.125rem;
+    margin: 0;
+    color: var(--lop-gray-900);
+}
+
+.lop-progress-container {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--lop-space-sm);
+}
+
+.lop-progress-text {
+    font-size: 0.875rem;
+    color: var(--lop-gray-500);
+    font-weight: var(--lop-font-weight-medium);
+}
+
+.lop-course-card .lop-button {
+    margin-top: var(--lop-space-md);
+    width: 100%;
+}
+
+.lop-course-hidden {
+    display: none !important;
+}
+
+/* Hero Resume Card */
+.lop-hero-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--lop-space-xl);
+    background: var(--lop-gray-50);
+    border-radius: var(--lop-radius-xl);
+    padding: var(--lop-space-xl);
+    border: 1px solid var(--lop-gray-100);
+}
+
+.lop-course-info {
+    display: flex;
+    align-items: center;
+    gap: var(--lop-space-lg);
+    flex: 1;
+}
+
+.lop-course-thumb {
+    width: 140px;
+    height: 88px;
+    object-fit: cover;
+    border-radius: var(--lop-radius-lg);
+    box-shadow: var(--lop-shadow-sm);
+}
+
+.lop-course-details h3 {
+    margin: 0 0 var(--lop-space-sm) 0;
+    font-size: 1.25rem;
+    color: var(--lop-gray-900);
+}
+
 /* Course Badges & Ribbons */
 .lop-bonus-badge {
     position: absolute;
@@ -1330,6 +1518,49 @@ Brand Color: #0474BE (Main header/membership color)
     .lop-filter-tabs {
         flex-direction: column;
         align-items: stretch;
+    }
+
+    .lop-courses-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .lop-search-filter-container {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .lop-search-box {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .lop-filter-select {
+        width: 100%;
+    }
+
+    .lop-course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lop-card-thumb {
+        height: 140px;
+    }
+
+    .lop-hero-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .lop-course-info {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .lop-course-thumb {
+        width: 100%;
     }
 }
 

@@ -86,7 +86,7 @@ Brand Color: #0474BE (Main header/membership color)
 .lop-dashboard-wrapper {
     display: flex;
     flex-direction: column;
-    gap: var(--lop-space-xl);
+    gap: var(--lop-space-2xl);
 }
 
 /* Login Prompt (Shared across all pages) */
@@ -138,21 +138,22 @@ Brand Color: #0474BE (Main header/membership color)
     overflow: hidden;
 }
 
-.lop-hero-section::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-    animation: float 20s infinite linear;
-    pointer-events: none;
+.lop-hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--lop-space-lg);
+    position: relative;
+    z-index: 2;
 }
 
-@keyframes float {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
+.lop-user-welcome {
+    display: flex;
+    align-items: center;
+    gap: var(--lop-space-lg);
+}
+
+.lop-hero-cta {
+    align-self: flex-start;
 }
 
 .lop-hero-title {
@@ -1131,19 +1132,6 @@ Brand Color: #0474BE (Main header/membership color)
     color: var(--lop-gray-900);
 }
 
-/* Continue Learning Section */
-.lop-continue-learning {
-    background: var(--lop-white);
-    border: 1px solid var(--lop-gray-100);
-    border-radius: var(--lop-radius-lg);
-    padding: var(--lop-space-lg);
-    box-shadow: var(--lop-shadow-xs);
-}
-
-.lop-continue-learning .lop-section-title {
-    margin-bottom: var(--lop-space-md);
-}
-
 /* Course Section Controls */
 .lop-courses-header {
     display: flex;
@@ -1293,6 +1281,66 @@ Brand Color: #0474BE (Main header/membership color)
 
 .lop-course-hidden {
     display: none !important;
+}
+
+/* Discover More Course Cards */
+.lop-course-excerpt {
+    font-size: 0.875rem;
+    color: var(--lop-gray-600);
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.lop-discover-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--lop-space-md);
+    margin-top: auto;
+    padding-top: var(--lop-space-sm);
+}
+
+.lop-price-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--lop-space-xs) var(--lop-space-md);
+    background: linear-gradient(135deg, var(--lop-primary) 0%, var(--lop-primary-light) 100%);
+    color: var(--lop-white);
+    font-size: 0.9375rem;
+    font-weight: var(--lop-font-weight-bold);
+    border-radius: var(--lop-radius-full);
+    box-shadow: 0 2px 8px rgba(4, 116, 190, 0.25);
+    letter-spacing: 0.01em;
+}
+
+.lop-discover-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--lop-space-xs);
+    color: var(--lop-primary);
+    font-size: 0.875rem;
+    font-weight: var(--lop-font-weight-semibold);
+    text-decoration: none;
+    transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.lop-discover-cta:hover {
+    color: var(--lop-primary-dark);
+    gap: var(--lop-space-sm);
+}
+
+.lop-discover-cta svg {
+    transition: transform 0.2s ease;
+}
+
+.lop-discover-cta:hover svg {
+    transform: translateX(2px);
 }
 
 /* Hero Resume Card */
@@ -1470,8 +1518,7 @@ Brand Color: #0474BE (Main header/membership color)
         display: none;
     }
     
-    .lop-section,
-    .lop-continue-learning {
+    .lop-section {
         padding: var(--lop-space-lg);
     }
     
@@ -1578,6 +1625,32 @@ Brand Color: #0474BE (Main header/membership color)
 
     .lop-course-thumb {
         width: 100%;
+    }
+    
+    .lop-user-welcome {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .lop-hero-cta {
+        align-self: center;
+        width: 100%;
+        max-width: 320px;
+    }
+    
+    .lop-discover-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--lop-space-sm);
+    }
+    
+    .lop-price-badge {
+        text-align: center;
+    }
+    
+    .lop-discover-cta {
+        justify-content: center;
     }
 }
 

@@ -871,46 +871,6 @@
             
             <?php endif; // End if ( ! empty( $user_announcements ) ) ?>
 
-            <!-- Continue Learning Section (Priority Placement for Better UX) -->
-            <?php if ( $recent_course_id ) :
-                $recent_course = get_post( $recent_course_id );
-                $recent_thumbnail = get_the_post_thumbnail_url( $recent_course_id, 'medium' );
-                if ( ! $recent_thumbnail ) {
-                    $recent_thumbnail = 'data:image/svg+xml;base64,' . base64_encode('<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#f3f4f6"/><text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#9ca3af" font-family="Arial, sans-serif" font-size="18">Course Image</text></svg>');
-                }
-            ?>
-            <section class="lop-continue-learning" aria-label="Continue Learning">
-                <h2 class="lop-section-title">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polygon points="5,3 19,12 5,21"></polygon>
-                    </svg>
-                    Continue Learning
-                </h2>
-                <div class="lop-hero-card">
-                    <div class="lop-course-info">
-                        <img src="<?php echo esc_url( $recent_thumbnail ); ?>" alt="<?php echo esc_attr( $recent_course->post_title ); ?>" class="lop-course-thumb" loading="lazy">
-                        <div class="lop-course-details">
-                            <h3><?php echo esc_html( $recent_course->post_title ); ?></h3>
-                            <div class="lop-progress-container">
-                                <div class="lop-progress-bar" role="progressbar" aria-valuenow="<?php echo $recent_progress_data['percentage']; ?>" aria-valuemin="0" aria-valuemax="100" aria-label="Course progress">
-                                    <div class="lop-progress-fill" style="width: <?php echo $recent_progress_data['percentage']; ?>%"></div>
-                                </div>
-                                <span class="lop-progress-text">
-                                    <?php echo $recent_progress_data['percentage']; ?>% Complete
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="<?php echo esc_url( $resume_url ); ?>" class="lop-button lop-button-primary" aria-label="Continue <?php echo esc_attr( $recent_course->post_title ); ?>">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="5,3 19,12 5,21"></polygon>
-                        </svg>
-                        Continue Course
-                    </a>
-                </div>
-            </section>
-            <?php endif; ?>
-
             <!-- My Courses Section -->
             <section class="lop-section" aria-label="My Courses">
                 <div class="lop-courses-header">
@@ -1258,17 +1218,17 @@
                                 <div class="lop-card-content">
                                     <h4><?php echo esc_html( $course->post_title ); ?></h4>
                                     <?php if ( $excerpt ) : ?>
-                                        <p style="font-size: 0.875rem; color: var(--lop-gray-600); margin-bottom: var(--lop-space-lg); line-height: 1.5;"><?php echo esc_html( $excerpt ); ?></p>
+                                        <p class="lop-course-excerpt"><?php echo esc_html( $excerpt ); ?></p>
                                     <?php endif; ?>
-                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                                        <span style="font-weight: var(--lop-font-weight-semibold); color: var(--lop-primary); font-size: 1.125rem;"><?php echo esc_html( $price_display ); ?></span>
-                                        <span class="lop-button lop-button-secondary" style="font-size: 0.875rem; padding: var(--lop-space-sm) var(--lop-space-md);">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                                <polyline points="7,7 17,7 17,17"></polyline>
+                                    <div class="lop-discover-footer">
+                                        <div class="lop-price-badge"><?php echo esc_html( $price_display ); ?></div>
+                                        <a href="<?php echo esc_url( $course_url ); ?>" class="lop-discover-cta" onclick="event.stopPropagation();">
+                                            Learn More
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                <polyline points="12,5 19,12 12,19"></polyline>
                                             </svg>
-                                            Explore
-                                        </span>
+                                        </a>
                                     </div>
                                 </div>
                             </article>

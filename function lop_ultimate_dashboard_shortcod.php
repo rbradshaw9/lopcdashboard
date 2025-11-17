@@ -1307,52 +1307,6 @@ function lop_apple_dashboard_shortcode() {
         console.log('Total Courses:', <?php echo absint( $total_courses ); ?>);
         console.log('GamiPress Function Exists:', <?php echo function_exists( 'gamipress_get_user_points' ) ? 'true' : 'false'; ?>);
 
-        // ===== STREAK UPDATE AFTER PAGE LOAD =====
-        function updateStreakDisplay() {
-            // Target the streak number specifically by ID
-            const streakElement = document.getElementById('streak-number');
-            const streakCard = document.getElementById('streak-card');
-            
-            if (!streakElement || !streakCard) {
-                console.log('Streak elements not found - streakElement:', !!streakElement, 'streakCard:', !!streakCard);
-                return;
-            }
-            
-            console.log('Updating streak for element:', streakElement, 'Current value:', streakElement.textContent);
-            
-            // Make AJAX call to update streak
-            fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: 'action=lop_update_streak&user_id=<?php echo $user_id; ?>&nonce=<?php echo wp_create_nonce('lop_streak_nonce'); ?>'
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success && data.data.streak !== undefined) {
-                    // Update the streak number with animation
-                    const currentStreak = parseInt(streakElement.textContent);
-                    const newStreak = parseInt(data.data.streak);
-                    
-                    if (newStreak !== currentStreak) {
-                        streakElement.style.transform = 'scale(1.2)';
-                        streakElement.style.transition = 'transform 0.3s ease';
-                        
-                        setTimeout(() => {
-                            streakElement.textContent = newStreak;
-                            streakElement.style.transform = 'scale(1)';
-                        }, 150);
-                        
-                        console.log('Streak updated:', currentStreak, '->', newStreak);
-                    }
-                }
-            })
-            .catch(error => {
-                console.log('Streak update error:', error);
-            });
-        }
-
         // ===== COLLAPSIBLE ANNOUNCEMENTS =====
         function initCollapsibleAnnouncements() {
             const toggle = document.querySelector('.lop-announcements-toggle');
@@ -1955,9 +1909,6 @@ function lop_apple_dashboard_shortcode() {
                 initCourseSorting();
                 initDismissibleAnnouncements();
                 initCollapsibleAnnouncements();
-                
-                // Update streak after everything loads
-                setTimeout(updateStreakDisplay, 1000);
             });
         } else {
             animateProgressBars();
@@ -1969,9 +1920,6 @@ function lop_apple_dashboard_shortcode() {
             initCourseSorting();
             initDismissibleAnnouncements();
             initCollapsibleAnnouncements();
-            
-            // Update streak after everything loads
-            setTimeout(updateStreakDisplay, 1000);
         }
 
 

@@ -543,14 +543,31 @@ function lop_apple_dashboard_shortcode() {
     ?>
     
     <div class="lop-dashboard-wrapper">
-        <!-- Welcome Header -->
+        <!-- Hero Header with Enhanced Visual Hierarchy -->
         <div class="lop-hero-section">
             <div class="lop-hero-content">
                 <div class="lop-user-welcome">
-                    <img src="<?php echo esc_url( $user_avatar ); ?>" alt="Profile" class="lop-user-avatar">
-                    <div>
-                        <h1 class="lop-hero-title">Welcome back, <?php echo esc_html( $user_name ); ?></h1>
-                        <p class="lop-hero-subtitle">Continue your learning journey</p>
+                    <img src="<?php echo esc_url( $user_avatar ); ?>" alt="<?php echo esc_attr( $user_name ); ?>'s profile" class="lop-user-avatar">
+                    <div class="lop-welcome-text">
+                        <h1 class="lop-hero-title">Welcome back, <?php echo esc_html( $user_name ); ?>! 👋</h1>
+                        <p class="lop-hero-subtitle">
+                            <?php 
+                            // Dynamic motivational message based on progress
+                            if ( $completed_count === 0 ) {
+                                echo "Let's start your learning journey";
+                            } elseif ( $overall_progress < 25 ) {
+                                echo "Great start! Keep building momentum";
+                            } elseif ( $overall_progress < 50 ) {
+                                echo "You're making excellent progress";
+                            } elseif ( $overall_progress < 75 ) {
+                                echo "Fantastic work! You're more than halfway there";
+                            } elseif ( $overall_progress < 100 ) {
+                                echo "Almost there! You're crushing it";
+                            } else {
+                                echo "Outstanding! All courses completed";
+                            }
+                            ?>
+                        </p>
                     </div>
                 </div>
                 
@@ -559,9 +576,27 @@ function lop_apple_dashboard_shortcode() {
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polygon points="5,3 19,12 5,21"></polygon>
                         </svg>
-                        Resume Learning
+                        <?php echo $recent_progress_data['percentage'] > 0 ? 'Continue Learning' : 'Start Learning'; ?>
                     </a>
                 <?php endif; ?>
+            </div>
+            
+            <!-- Quick Stats Bar (Inline with Hero for better scanability) -->
+            <div class="lop-quick-stats">
+                <div class="lop-quick-stat">
+                    <div class="lop-quick-stat-value"><?php echo $overall_progress; ?>%</div>
+                    <div class="lop-quick-stat-label">Overall Progress</div>
+                </div>
+                <div class="lop-quick-stat-divider"></div>
+                <div class="lop-quick-stat">
+                    <div class="lop-quick-stat-value"><?php echo $completed_count; ?>/<?php echo $total_courses; ?></div>
+                    <div class="lop-quick-stat-label">Completed</div>
+                </div>
+                <div class="lop-quick-stat-divider"></div>
+                <div class="lop-quick-stat">
+                    <div class="lop-quick-stat-value"><?php echo max(0, $total_courses - $completed_count); ?></div>
+                    <div class="lop-quick-stat-label">In Progress</div>
+                </div>
             </div>
         </div>
         
@@ -832,42 +867,7 @@ function lop_apple_dashboard_shortcode() {
             </section>
         <?php endif; ?>
 
-        <!-- Statistics Grid -->
-        <section class="lop-stats-grid" aria-label="Learning Statistics">
-            <div class="lop-stat-card">
-                <div class="lop-stat-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                    </svg>
-                </div>
-                <div class="lop-stat-number"><?php echo $overall_progress; ?>%</div>
-                <div class="lop-stat-label">Overall Progress</div>
-            </div>
-
-            <div class="lop-stat-card">
-                <div class="lop-stat-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                    </svg>
-                </div>
-                <div class="lop-stat-number"><?php echo $total_courses; ?></div>
-                <div class="lop-stat-label">Courses Enrolled</div>
-            </div>
-
-            <div class="lop-stat-card">
-                <div class="lop-stat-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 12l2 2 4-4"></path>
-                        <circle cx="12" cy="12" r="10"></circle>
-                    </svg>
-                </div>
-                <div class="lop-stat-number"><?php echo $completed_count; ?></div>
-                <div class="lop-stat-label">Completed</div>
-            </div>
-        </section>
-
-        <!-- Continue Learning Section -->
+        <!-- Continue Learning Section (Priority Placement for Better UX) -->
         <?php if ( $recent_course_id ) :
             $recent_course = get_post( $recent_course_id );
             $recent_thumbnail = get_the_post_thumbnail_url( $recent_course_id, 'medium' );

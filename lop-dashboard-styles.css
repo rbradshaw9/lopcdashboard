@@ -76,11 +76,17 @@ Brand Color: #0474BE (Main header/membership color)
 .lop-achievements-page,
 .lop-profile-page {
     font-family: var(--lop-font-family);
-    max-width: 1200px;
-    margin: var(--lop-space-md) auto;
-    padding: var(--lop-space-xl);
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: var(--lop-space-xl) var(--lop-space-lg);
     background: transparent;
     min-height: 600px;
+}
+
+.lop-dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--lop-space-xl);
 }
 
 /* Login Prompt (Shared across all pages) */
@@ -123,11 +129,10 @@ Brand Color: #0474BE (Main header/membership color)
    ============================================================================= */
 
 .lop-hero-section {
-    background: var(--lop-white);
-    border-radius: var(--lop-radius-lg);
-    padding: var(--lop-space-2xl);
-    margin-bottom: var(--lop-space-xl);
-    box-shadow: var(--lop-shadow-sm);
+    background: linear-gradient(135deg, var(--lop-white) 0%, var(--lop-gray-50) 100%);
+    border-radius: var(--lop-radius-xl);
+    padding: var(--lop-space-2xl) var(--lop-space-xl);
+    box-shadow: var(--lop-shadow-md);
     border: 1px solid var(--lop-gray-100);
     position: relative;
     overflow: hidden;
@@ -151,19 +156,19 @@ Brand Color: #0474BE (Main header/membership color)
 }
 
 .lop-hero-title {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     font-weight: var(--lop-font-weight-bold);
     color: var(--lop-gray-900);
-    margin-bottom: var(--lop-space-sm);
-    text-align: center;
+    margin-bottom: var(--lop-space-xs);
+    line-height: 1.2;
 }
 
 .lop-hero-subtitle {
-    font-size: 1.125rem;
-    color: var(--lop-gray-500);
+    font-size: 1rem;
+    color: var(--lop-gray-600);
     margin-bottom: 0;
-    font-weight: var(--lop-font-weight-regular);
-    line-height: 1.6;
+    font-weight: var(--lop-font-weight-medium);
+    line-height: 1.5;
 }
 
 /* Quick Stats Bar (Inline Hero Stats) */
@@ -171,37 +176,41 @@ Brand Color: #0474BE (Main header/membership color)
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--lop-space-xl);
-    margin-top: var(--lop-space-xl);
-    padding-top: var(--lop-space-xl);
-    border-top: 1px solid var(--lop-gray-100);
+    flex-wrap: wrap;
+    gap: var(--lop-space-lg) var(--lop-space-2xl);
+    margin-top: var(--lop-space-lg);
+    padding-top: var(--lop-space-lg);
+    border-top: 1px solid var(--lop-gray-200);
 }
 
 .lop-quick-stat {
     text-align: center;
     flex: 0 0 auto;
+    min-width: 100px;
 }
 
 .lop-quick-stat-value {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: var(--lop-font-weight-bold);
     color: var(--lop-primary);
     line-height: 1;
     margin-bottom: var(--lop-space-xs);
+    font-variant-numeric: tabular-nums;
 }
 
 .lop-quick-stat-label {
-    font-size: 0.875rem;
-    color: var(--lop-gray-500);
-    font-weight: var(--lop-font-weight-medium);
+    font-size: 0.8125rem;
+    color: var(--lop-gray-600);
+    font-weight: var(--lop-font-weight-semibold);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
 }
 
 .lop-quick-stat-divider {
     width: 1px;
-    height: 40px;
+    height: 48px;
     background: var(--lop-gray-200);
+    flex-shrink: 0;
 }
 
 /* Welcome Header (Dashboard specific) */
@@ -416,86 +425,41 @@ Brand Color: #0474BE (Main header/membership color)
     background: var(--lop-white);
     border: 1px solid var(--lop-gray-100);
     border-radius: var(--lop-radius-xl);
-    padding: var(--lop-space-2xl);
-    margin-bottom: var(--lop-space-2xl);
+    padding: var(--lop-space-xl) var(--lop-space-lg);
     box-shadow: var(--lop-shadow-sm);
-    transition: all 0.3s ease;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
     position: relative;
-    overflow: hidden;
-}
-
-.lop-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--lop-primary) 0%, var(--lop-secondary) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.lop-section:hover {
-    box-shadow: var(--lop-shadow-lg);
-    border-color: var(--lop-primary);
-    transform: translateY(-2px);
-}
-
-.lop-section:hover::before {
-    opacity: 1;
 }
 
 .lop-section-compact {
     background: var(--lop-white);
     border: 1px solid var(--lop-gray-100);
-    border-radius: var(--lop-radius-xl);
-    padding: var(--lop-space-xl);
-    box-shadow: var(--lop-shadow-sm);
-    transition: all 0.3s ease;
+    border-radius: var(--lop-radius-lg);
+    padding: var(--lop-space-lg);
+    box-shadow: var(--lop-shadow-xs);
+    transition: box-shadow 0.2s ease;
     position: relative;
-    overflow: hidden;
-}
-
-.lop-section-compact::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--lop-primary) 0%, var(--lop-secondary) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.lop-section-compact:hover {
-    box-shadow: var(--lop-shadow-lg);
-    border-color: var(--lop-primary);
-    transform: translateY(-1px);
-}
-
-.lop-section-compact:hover::before {
-    opacity: 1;
 }
 
 .lop-section-title {
-    font-size: 1.875rem;
-    font-weight: 700;
-    margin-bottom: var(--lop-space-lg);
+    font-size: 1.75rem;
+    font-weight: var(--lop-font-weight-bold);
+    margin: 0 0 var(--lop-space-lg) 0;
     color: var(--lop-gray-900);
     display: flex;
     align-items: center;
-    gap: var(--lop-space-md);
+    gap: var(--lop-space-sm);
+    line-height: 1.2;
 }
 
 .lop-section-compact .lop-section-title {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     margin-bottom: var(--lop-space-md);
 }
 
 .lop-section-title svg {
     color: var(--lop-primary);
+    flex-shrink: 0;
 }
 
 /* =============================================================================
@@ -1070,21 +1034,21 @@ Brand Color: #0474BE (Main header/membership color)
 
 /* Announcements */
 .lop-banner-announcements {
-    margin-bottom: var(--lop-space-lg);
+    margin-bottom: var(--lop-space-xl);
 }
 
 .lop-banner-announcement {
     position: relative;
-    margin-bottom: var(--lop-space-md);
+    margin-bottom: var(--lop-space-lg);
     border-radius: var(--lop-radius-lg);
     overflow: hidden;
-    box-shadow: var(--lop-shadow-lg);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--lop-shadow-md);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .lop-banner-announcement:hover {
     transform: translateY(-2px);
-    box-shadow: var(--lop-shadow-xl);
+    box-shadow: var(--lop-shadow-lg);
 }
 
 .lop-banner-announcement:last-child {
@@ -1129,22 +1093,18 @@ Brand Color: #0474BE (Main header/membership color)
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.lop-announcements-wrapper {
-    margin-bottom: var(--lop-space-xl);
-}
-
 .lop-announcements-card {
     background: var(--lop-white);
-    border: 1px solid var(--lop-gray-200);
+    border: 1px solid var(--lop-gray-100);
     border-radius: var(--lop-radius-lg);
     box-shadow: var(--lop-shadow-sm);
     overflow: hidden;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .lop-announcements-card:hover {
     box-shadow: var(--lop-shadow-md);
-    border-color: var(--lop-primary);
+    border-color: var(--lop-gray-200);
 }
 
 .lop-announcements-header {
@@ -1153,15 +1113,35 @@ Brand Color: #0474BE (Main header/membership color)
 
 .lop-announcements-toggle {
     width: 100%;
-    background: transparent;
+    background: var(--lop-gray-50);
     border: none;
     padding: var(--lop-space-lg);
     cursor: pointer;
-    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.2s ease;
 }
 
 .lop-announcements-toggle:hover {
-    background: var(--lop-gray-50);
+    background: var(--lop-gray-100);
+}
+
+.lop-announcements-toggle h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: var(--lop-font-weight-semibold);
+    color: var(--lop-gray-900);
+}
+
+/* Continue Learning Section */
+.lop-continue-learning {
+    background: var(--lop-white);
+    border: 1px solid var(--lop-gray-100);
+    border-radius: var(--lop-radius-lg);
+    padding: var(--lop-space-lg);
+    box-shadow: var(--lop-shadow-xs);
+}
+
+.lop-continue-learning .lop-section-title {
+    margin-bottom: var(--lop-space-md);
 }
 
 /* Course Section Controls */
@@ -1170,8 +1150,8 @@ Brand Color: #0474BE (Main header/membership color)
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: var(--lop-space-lg);
-    margin-bottom: var(--lop-space-xl);
+    gap: var(--lop-space-md);
+    margin-bottom: var(--lop-space-lg);
 }
 
 .lop-search-filter-container {
@@ -1228,8 +1208,8 @@ Brand Color: #0474BE (Main header/membership color)
 /* Course Grid */
 .lop-course-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: var(--lop-space-xl);
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--lop-space-lg);
     list-style: none;
     padding: 0;
     margin: 0;
@@ -1238,25 +1218,29 @@ Brand Color: #0474BE (Main header/membership color)
 .lop-course-card {
     background: var(--lop-white);
     border: 1px solid var(--lop-gray-100);
-    border-radius: var(--lop-radius-xl);
-    box-shadow: var(--lop-shadow-sm);
+    border-radius: var(--lop-radius-lg);
+    box-shadow: var(--lop-shadow-xs);
     display: flex;
     flex-direction: column;
     overflow: hidden;
     position: relative;
-    min-height: 360px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    min-height: 380px;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s ease;
 }
 
 .lop-course-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--lop-shadow-lg);
-    border-color: var(--lop-primary);
+    transform: translateY(-3px);
+    box-shadow: var(--lop-shadow-md);
+    border-color: var(--lop-primary-light);
 }
 
 .lop-course-card.completed {
-    border-color: rgba(52, 199, 89, 0.3);
-    box-shadow: 0 12px 30px rgba(52, 199, 89, 0.15);
+    border-color: rgba(52, 199, 89, 0.25);
+}
+
+.lop-course-card.completed:hover {
+    border-color: var(--lop-success);
+    box-shadow: 0 8px 24px rgba(52, 199, 89, 0.2);
 }
 
 .lop-course-card p {
@@ -1265,41 +1249,46 @@ Brand Color: #0474BE (Main header/membership color)
 
 .lop-card-thumb {
     width: 100%;
-    height: 160px;
+    height: 180px;
     object-fit: cover;
     display: block;
+    background: var(--lop-gray-50);
 }
 
 .lop-card-content {
     display: flex;
     flex-direction: column;
-    gap: var(--lop-space-md);
-    padding: var(--lop-space-xl);
-    height: 100%;
+    gap: var(--lop-space-sm);
+    padding: var(--lop-space-lg);
+    flex: 1;
 }
 
 .lop-card-content h4 {
     font-size: 1.125rem;
+    font-weight: var(--lop-font-weight-semibold);
     margin: 0;
     color: var(--lop-gray-900);
+    line-height: 1.3;
 }
 
 .lop-progress-container {
     margin-top: auto;
+    padding-top: var(--lop-space-sm);
     display: flex;
     flex-direction: column;
-    gap: var(--lop-space-sm);
+    gap: var(--lop-space-xs);
 }
 
 .lop-progress-text {
-    font-size: 0.875rem;
-    color: var(--lop-gray-500);
-    font-weight: var(--lop-font-weight-medium);
+    font-size: 0.8125rem;
+    color: var(--lop-gray-600);
+    font-weight: var(--lop-font-weight-semibold);
 }
 
 .lop-course-card .lop-button {
-    margin-top: var(--lop-space-md);
+    margin-top: var(--lop-space-sm);
     width: 100%;
+    font-size: 0.9375rem;
 }
 
 .lop-course-hidden {
@@ -1312,11 +1301,18 @@ Brand Color: #0474BE (Main header/membership color)
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: var(--lop-space-xl);
-    background: var(--lop-gray-50);
-    border-radius: var(--lop-radius-xl);
-    padding: var(--lop-space-xl);
-    border: 1px solid var(--lop-gray-100);
+    gap: var(--lop-space-lg);
+    background: var(--lop-white);
+    border-radius: var(--lop-radius-lg);
+    padding: var(--lop-space-lg);
+    border: 1px solid var(--lop-gray-200);
+    box-shadow: var(--lop-shadow-sm);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.lop-hero-card:hover {
+    box-shadow: var(--lop-shadow-md);
+    border-color: var(--lop-primary-light);
 }
 
 .lop-course-info {
@@ -1324,20 +1320,29 @@ Brand Color: #0474BE (Main header/membership color)
     align-items: center;
     gap: var(--lop-space-lg);
     flex: 1;
+    min-width: 0;
 }
 
 .lop-course-thumb {
-    width: 140px;
-    height: 88px;
+    width: 160px;
+    height: 100px;
     object-fit: cover;
-    border-radius: var(--lop-radius-lg);
-    box-shadow: var(--lop-shadow-sm);
+    border-radius: var(--lop-radius-md);
+    box-shadow: var(--lop-shadow-xs);
+    flex-shrink: 0;
+}
+
+.lop-course-details {
+    flex: 1;
+    min-width: 0;
 }
 
 .lop-course-details h3 {
     margin: 0 0 var(--lop-space-sm) 0;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
+    font-weight: var(--lop-font-weight-semibold);
     color: var(--lop-gray-900);
+    line-height: 1.3;
 }
 
 /* Course Badges & Ribbons */
@@ -1421,11 +1426,15 @@ Brand Color: #0474BE (Main header/membership color)
     .lop-dashboard,
     .lop-achievements-page,
     .lop-profile-page {
-        padding: var(--lop-space-md);
+        padding: var(--lop-space-lg) var(--lop-space-md);
+    }
+    
+    .lop-dashboard-wrapper {
+        gap: var(--lop-space-lg);
     }
     
     .lop-hero-section {
-        padding: var(--lop-space-lg);
+        padding: var(--lop-space-xl) var(--lop-space-lg);
     }
     
     .lop-hero-content {
@@ -1461,12 +1470,13 @@ Brand Color: #0474BE (Main header/membership color)
         display: none;
     }
     
-    .lop-section {
-        padding: var(--lop-space-xl);
+    .lop-section,
+    .lop-continue-learning {
+        padding: var(--lop-space-lg);
     }
     
     .lop-section-compact {
-        padding: var(--lop-space-lg);
+        padding: var(--lop-space-md);
     }
     
     .lop-profile-header {
@@ -1486,14 +1496,16 @@ Brand Color: #0474BE (Main header/membership color)
     }
     
     .lop-hero-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
+    }
+    
+    .lop-hero-subtitle {
+        font-size: 0.9375rem;
     }
     
     .lop-section-title {
-        font-size: 1.5rem;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--lop-space-sm);
+        font-size: 1.375rem;
+        gap: var(--lop-space-xs);
     }
     
     .lop-two-column-layout {
@@ -1542,10 +1554,15 @@ Brand Color: #0474BE (Main header/membership color)
 
     .lop-course-grid {
         grid-template-columns: 1fr;
+        gap: var(--lop-space-md);
     }
 
     .lop-card-thumb {
-        height: 140px;
+        height: 160px;
+    }
+    
+    .lop-course-card {
+        min-height: 340px;
     }
 
     .lop-hero-card {
